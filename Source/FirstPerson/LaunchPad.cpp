@@ -14,7 +14,7 @@ ALaunchPad::ALaunchPad()
 	Collision->SetupAttachment(RootComponent);
 	Collision->OnComponentBeginOverlap.AddDynamic(this, &ALaunchPad::OnOverlapBegin);
 
-	UE_LOG(LogTemp, Warning, TEXT("log works"));
+
 
 
 
@@ -25,7 +25,7 @@ void ALaunchPad::BeginPlay()
 {
 	Super::BeginPlay();
 
-	
+	UE_LOG(LogTemp, Warning, TEXT("log works"));
 	
 }
 

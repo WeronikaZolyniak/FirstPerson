@@ -29,6 +29,12 @@ protected:
 
 	class UBoxComponent* Collision;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float Strength;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	FVector Direction;
+
 
 
 };
