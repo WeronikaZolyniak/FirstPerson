@@ -3,6 +3,7 @@
 
 #include "LaunchPad.h"
 #include "GameFramework/Character.h"
+#include "Components/PrimitiveComponent.h"
 
 
 // Sets default values
@@ -12,8 +13,10 @@ ALaunchPad::ALaunchPad()
 	PrimaryActorTick.bCanEverTick = false;
 
 	Collision = CreateDefaultSubobject<UBoxComponent>(FName("Collision"));
+	Collision->SetBoxExtent(FVector(46.f,46.f,5.f));
 	Collision->SetupAttachment(RootComponent);
 	Collision->OnComponentBeginOverlap.AddDynamic(this, &ALaunchPad::OnOverlapBegin);
+
 
 
 
@@ -40,9 +43,10 @@ void ALaunchPad::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* Oth
 		Cast<ACharacter>(OtherActor)->LaunchCharacter(Direction * Strength, true, true);
 
 	}
-	else
+	else if(OtherComp && OtherComp->IsSimulatingPhysics())
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Overlapping Object is not a player"));
+		OtherComp->AddImpulse(Direction * Strength, NAME_None , true);
 	}
 }
 
