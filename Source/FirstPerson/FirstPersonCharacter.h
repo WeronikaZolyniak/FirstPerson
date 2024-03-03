@@ -80,7 +80,8 @@ protected:
 	// End of APawn interface
 
 	virtual void OnMovementModeChanged(EMovementMode PrevMovementMode, uint8 PreviousCustomMode) override;
-	
+	UCharacterMovementComponent* MovComp;
+	float AirControlValue = 0.05;
 	
 
 public:
