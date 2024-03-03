@@ -11,6 +11,7 @@
 #include "InputActionValue.h"
 #include "Engine/LocalPlayer.h"
 
+
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
 //////////////////////////////////////////////////////////////////////////
@@ -38,6 +39,7 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	Mesh1P->CastShadow = false;
 	//Mesh1P->SetRelativeRotation(FRotator(0.9f, -19.19f, 5.2f));
 	Mesh1P->SetRelativeLocation(FVector(-30.f, 0.f, -150.f));
+
 
 }
 
@@ -80,6 +82,19 @@ void AFirstPersonCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 	}
 }
 
+void AFirstPersonCharacter::OnMovementModeChanged(EMovementMode PrevMovementMode, uint8 PreviousCustomMode)
+{
+	Super::OnMovementModeChanged(PrevMovementMode, PreviousCustomMode);
+
+	UCharacterMovementComponent* MovComp = GetCharacterMovement();
+	if (MovComp == nullptr) UE_LOG(LogTemp, Warning, TEXT("MovComp is null"));
+	if (MovComp != nullptr && PrevMovementMode == MOVE_Falling && MovComp->AirControl == 0)
+	{
+		
+		MovComp->AirControl = 0.05;
+	}
+}
+
 
 void AFirstPersonCharacter::Move(const FInputActionValue& Value)
 {
@@ -116,3 +131,4 @@ bool AFirstPersonCharacter::GetHasRifle()
 {
 	return bHasRifle;
 }
+
