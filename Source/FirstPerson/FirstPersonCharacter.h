@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Logging/LogMacros.h"
+#include "GameFramework/CharacterMovementComponent.h"
 #include "FirstPersonCharacter.generated.h"
 
 class UInputComponent;
@@ -48,6 +49,7 @@ protected:
 	virtual void BeginPlay();
 
 public:
+
 		
 	/** Look Input Action */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
@@ -76,6 +78,10 @@ protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(UInputComponent* InputComponent) override;
 	// End of APawn interface
+
+	virtual void OnMovementModeChanged(EMovementMode PrevMovementMode, uint8 PreviousCustomMode) override;
+	
+	
 
 public:
 	/** Returns Mesh1P subobject **/

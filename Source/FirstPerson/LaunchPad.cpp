@@ -4,6 +4,8 @@
 #include "LaunchPad.h"
 #include "GameFramework/Character.h"
 #include "Components/PrimitiveComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
+#include "GameFramework/Actor.h"
 
 
 // Sets default values
@@ -13,7 +15,7 @@ ALaunchPad::ALaunchPad()
 	PrimaryActorTick.bCanEverTick = false;
 
 	Collision = CreateDefaultSubobject<UBoxComponent>(FName("Collision"));
-	Collision->SetBoxExtent(FVector(46.f,46.f,5.f));
+	Collision->SetBoxExtent(FVector(46.f,46.f,45.f));
 	Collision->SetupAttachment(RootComponent);
 	Collision->OnComponentBeginOverlap.AddDynamic(this, &ALaunchPad::OnOverlapBegin);
 
@@ -35,17 +37,24 @@ void ALaunchPad::BeginPlay()
 
 void ALaunchPad::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Overlapping Collision"));
+	//UE_LOG(LogTemp, Warning, TEXT("Overlapping Collision"));
 
 	if (OtherActor->IsA(ACharacter::StaticClass()))
 	{
 		//UE_LOG(LogTemp, Warning, TEXT("Overlapping Object is a player"));
 		Cast<ACharacter>(OtherActor)->LaunchCharacter(Direction * Strength, true, true);
 
+		UCharacterMovementComponent* MovComp = OtherActor->FindComponentByClass<UCharacterMovementComponent>();
+		//UE_LOG(LogTemp, Warning, TEXT("Movement Component: %s"), *MovComp->GetName());
+
+		if(MovComp != nullptr) MovComp->AirControl = 0;
+
+
+
 	}
 	else if(OtherComp && OtherComp->IsSimulatingPhysics())
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Overlapping Object is not a player"));
+		//UE_LOG(LogTemp, Warning, TEXT("Overlapping Object is not a player"));
 		OtherComp->AddImpulse(Direction * Strength, NAME_None , true);
 	}
 }
