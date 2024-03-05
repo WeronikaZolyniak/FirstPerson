@@ -21,9 +21,6 @@ ALaunchPad::ALaunchPad()
 
 
 
-
-
-
 }
 
 // Called when the game starts or when spawned
@@ -31,7 +28,8 @@ void ALaunchPad::BeginPlay()
 {
 	Super::BeginPlay();
 
-	//UE_LOG(LogTemp, Warning, TEXT("log works"));
+	FRotator LaunchPadRotation = GetActorRotation();
+	Direction = LaunchPadRotation.RotateVector(Direction);
 	
 }
 
