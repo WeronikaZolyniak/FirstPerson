@@ -5,6 +5,7 @@
 #include "GameFramework/Character.h"
 #include "Components/PrimitiveComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Components/ArrowComponent.h"
 #include "GameFramework/Actor.h"
 
 
@@ -19,6 +20,9 @@ ALaunchPad::ALaunchPad()
 	Collision->SetupAttachment(RootComponent);
 	Collision->OnComponentBeginOverlap.AddDynamic(this, &ALaunchPad::OnOverlapBegin);
 
+	Arrow = CreateDefaultSubobject<UArrowComponent>(FName("Arrow"));
+	Arrow->SetupAttachment(RootComponent);
+	
 
 
 }

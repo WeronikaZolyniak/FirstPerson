@@ -93,7 +93,6 @@ void AFirstPersonCharacter::OnMovementModeChanged(EMovementMode PrevMovementMode
 	if (MovComp == nullptr) UE_LOG(LogTemp, Warning, TEXT("MovComp is null"));
 	if (MovComp != nullptr && PrevMovementMode == MOVE_Falling && MovComp->AirControl == 0)
 	{
-		
 		MovComp->AirControl = AirControlValue;
 	}
 }

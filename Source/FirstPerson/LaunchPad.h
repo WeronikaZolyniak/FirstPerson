@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include <Components/BoxComponent.h>
+#include "Components/ArrowComponent.h"
 #include "LaunchPad.generated.h"
 
 
@@ -28,6 +29,7 @@ protected:
 	void OnOverlapBegin(UPrimitiveComponent* OverlappedComp ,AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
 	class UBoxComponent* Collision;
+	class UArrowComponent* Arrow;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float Strength;
