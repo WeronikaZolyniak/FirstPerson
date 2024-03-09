@@ -27,7 +27,15 @@ protected:
 	UFUNCTION()
 	void OnOverlapBegin(UPrimitiveComponent* OverlappedComp ,AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
+	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
+
 	class UBoxComponent* Collision;
+<<<<<<< Updated upstream
+=======
+
+	UPROPERTY(BlueprintReadOnly, EditAnywhere)
+	class UArrowComponent* Arrow;
+>>>>>>> Stashed changes
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float Strength;
