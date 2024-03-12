@@ -30,12 +30,9 @@ protected:
 	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
 
 	class UBoxComponent* Collision;
-<<<<<<< Updated upstream
-=======
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	class UArrowComponent* Arrow;
->>>>>>> Stashed changes
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float Strength;

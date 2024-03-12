@@ -5,35 +5,26 @@
 #include "GameFramework/Character.h"
 #include "Components/PrimitiveComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
-<<<<<<< Updated upstream
-=======
 #include "Components/ArrowComponent.h"
 #include "Kismet/KismetMathLibrary.h"
->>>>>>> Stashed changes
 #include "GameFramework/Actor.h"
 
 
 // Sets default values
 ALaunchPad::ALaunchPad()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 
 	Collision = CreateDefaultSubobject<UBoxComponent>(FName("Collision"));
-	Collision->SetBoxExtent(FVector(46.f,46.f,45.f));
+	Collision->SetBoxExtent(FVector(46.f, 46.f, 45.f));
 	RootComponent = Collision;
 	Collision->OnComponentBeginOverlap.AddDynamic(this, &ALaunchPad::OnOverlapBegin);
-
-<<<<<<< Updated upstream
-
-
-=======
-	
 
 	Arrow = CreateDefaultSubobject<UArrowComponent>(FName("Arrow"));
 	Arrow->SetupAttachment(RootComponent);
 	Arrow->SetRelativeLocation(FVector(0, 0, -20));
->>>>>>> Stashed changes
+	Arrow->SetRelativeRotation(Direction.Rotation());
 }
 
 // Called when the game starts or when spawned
