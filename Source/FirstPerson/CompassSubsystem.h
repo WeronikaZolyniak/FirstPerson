@@ -13,5 +13,11 @@ UCLASS()
 class FIRSTPERSON_API UCompassSubsystem : public UWorldSubsystem
 {
 	GENERATED_BODY()
-	
+
+protected:
+
+	UFUNCTION(BlueprintCallable)
+	void SetObjectiveLocation(FVector Location);
+
+	FVector ObjectiveLocation;
 };

@@ -3,3 +3,7 @@
 
 #include "CompassSubsystem.h"
 
+void UCompassSubsystem::SetObjectiveLocation(FVector Location)
+{
+	ObjectiveLocation = Location;
+}
