@@ -19,5 +19,8 @@ protected:
 	UFUNCTION(BlueprintCallable)
 	void SetObjectiveLocation(FVector Location);
 
+	UFUNCTION(BlueprintCallable)
+	float CalculateTheAngle(AActor* Actor);
+
 	FVector ObjectiveLocation;
 };
