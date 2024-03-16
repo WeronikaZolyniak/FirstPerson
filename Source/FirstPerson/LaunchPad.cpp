@@ -57,13 +57,14 @@ void ALaunchPad::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* Oth
 	}
 }
 
+#if WITH_EDITOR
 void ALaunchPad::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
 {
 	Super::PostEditChangeProperty(PropertyChangedEvent);
 
 	Arrow->SetRelativeRotation(Direction.Rotation());
 }
-
+#endif
 
 
 // Called every frame
