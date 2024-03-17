@@ -19,4 +19,7 @@ protected:
 
 	UFUNCTION(BlueprintCallable)
 	void AddPoints(int NumberToAdd);
+
+	UFUNCTION(BlueprintCallable)
+	int GetCurrentPoints();
 };

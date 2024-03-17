@@ -7,3 +7,8 @@ void UScoringSubsystem::AddPoints(int NumberToAdd)
 {
 	Points += NumberToAdd;
 }
+
+int UScoringSubsystem::GetCurrentPoints()
+{
+	return Points;
+}
