@@ -5,10 +5,25 @@
 
 void UScoringSubsystem::AddPoints(int NumberToAdd)
 {
-	Points += NumberToAdd;
+	Points += NumberToAdd * Multiplier;
 }
 
 int UScoringSubsystem::GetCurrentPoints()
 {
 	return Points;
+}
+
+void UScoringSubsystem::IncreaseMultiplier()
+{
+	Multiplier++;
+}
+
+int UScoringSubsystem::GetCurrentMultiplier()
+{
+	return Multiplier;
+}
+
+void UScoringSubsystem::ResetMultiplier()
+{
+	Multiplier = 1;
 }

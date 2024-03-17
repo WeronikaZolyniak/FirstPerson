@@ -16,10 +16,20 @@ class FIRSTPERSON_API UScoringSubsystem : public UGameInstanceSubsystem
 	
 protected:
 	int Points = 0;
+	int Multiplier = 1;
 
 	UFUNCTION(BlueprintCallable)
 	void AddPoints(int NumberToAdd);
 
 	UFUNCTION(BlueprintCallable)
 	int GetCurrentPoints();
+
+	UFUNCTION(BlueprintCallable)
+	void IncreaseMultiplier();
+
+	UFUNCTION(BlueprintCallable)
+	int GetCurrentMultiplier();
+
+	UFUNCTION(BlueprintCallable)
+	void ResetMultiplier();
 };
