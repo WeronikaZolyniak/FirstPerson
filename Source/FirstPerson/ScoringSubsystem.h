@@ -14,4 +14,9 @@ class FIRSTPERSON_API UScoringSubsystem : public UGameInstanceSubsystem
 {
 	GENERATED_BODY()
 	
+protected:
+	int Points = 0;
+
+	UFUNCTION(BlueprintCallable)
+	void AddPoints(int NumberToAdd);
 };

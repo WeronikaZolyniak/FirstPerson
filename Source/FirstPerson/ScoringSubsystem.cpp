@@ -3,3 +3,7 @@
 
 #include "ScoringSubsystem.h"
 
+void UScoringSubsystem::AddPoints(int NumberToAdd)
+{
+	Points += NumberToAdd;
+}
