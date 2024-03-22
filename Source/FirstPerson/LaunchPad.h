@@ -34,6 +34,9 @@ protected:
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	class UArrowComponent* Arrow;
 
+	UPROPERTY(BlueprintReadOnly, EditAnywhere)
+	class USoundBase* LaunchSound;
+
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float Strength;
 
