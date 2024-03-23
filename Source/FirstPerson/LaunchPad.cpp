@@ -26,6 +26,10 @@ ALaunchPad::ALaunchPad()
 	Arrow->SetupAttachment(RootComponent);
 	Arrow->SetRelativeLocation(FVector(0, 0, -20));
 	Arrow->SetRelativeRotation(Direction.Rotation());
+
+	ParticleEmmiter = CreateDefaultSubobject<UParticleSystemComponent>(FName("Particle Emmiter"));
+	ParticleEmmiter->SetupAttachment(RootComponent);
+	ParticleEmmiter->SetRelativeLocation(FVector(0, 0, -10));
 }
 
 // Called when the game starts or when spawned

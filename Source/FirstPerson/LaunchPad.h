@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include <Components/BoxComponent.h>
+#include "Particles/ParticleSystem.h"
+#include "Particles/ParticleSystemComponent.h"
 #include "LaunchPad.generated.h"
 
 
@@ -36,6 +38,9 @@ protected:
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	class USoundBase* LaunchSound;
+
+	UPROPERTY(BlueprintReadOnly, EditAnywhere)
+	class UParticleSystemComponent* ParticleEmmiter;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float Strength;
